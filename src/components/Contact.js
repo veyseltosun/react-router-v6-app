@@ -20,14 +20,14 @@ const Contact = (props) => {
                 className="ui raised very padded text container segment"
                 style={{ marginTop: "80px", }}
             >
-                <Link to="/card/alex" className="ui header"> Alex </Link>
+                <Link to="/alex" className="ui header"> Alex </Link>
                 <p>Lorem ipsum sit amet dolar.</p>
             </div>
             <div
                 className="ui raised very padded text container segment"
                 style={{ marginTop: "80px", }}
             >
-                <Link to="/card/willma" className="ui header"> Willma </Link>
+                <Link to="/willma" className="ui header"> Willma </Link>
                 <p>Lorem ipsum sit amet dolar.</p>
             </div>
 
