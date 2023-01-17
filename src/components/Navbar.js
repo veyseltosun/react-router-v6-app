@@ -10,7 +10,7 @@ const Navbar = () => {
     // },2000)
     return(
         <nav className="ui raised very padded segment">
-            <a className="ui teal inverted segment" href="https://reactrouter.com/en/main/upgrading/v5" style={{marginLeft:"5px"}}>
+            <a className="ui teal inverted segment" href="https://reactrouter.com/en/main/upgrading/v5" style={{margin:"5px"}}>
             Go Docs Router V6<i className="hand point left outline icon"></i>
             </a>
             <div className="ui right floated header">
