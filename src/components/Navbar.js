@@ -10,8 +10,8 @@ const Navbar = () => {
     // },2000)
     return(
         <nav className="ui raised very padded segment">
-            <a className="ui teal inverted segment">
-              Gloria 
+            <a className="ui teal inverted segment" href="https://reactrouter.com/en/main/upgrading/v5">
+             Go to React Router V6   <i className="hand point left outline icon"></i>
             </a>
             <div className="ui right floated header">
                 <button className="ui button" ><Link to="/">Home</Link></button>
