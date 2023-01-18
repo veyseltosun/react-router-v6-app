@@ -10,15 +10,17 @@ const Card = ({ cards }) => {
 
 
     console.log(cards)
+    let card = cards.find( card => card.title === user)
+    const {title, body} = card
 
     const onButtonClick = () => {
-        card.deleteCard()
+        let {id} = card;
+        card.deleteCard(id)
     }
 
 
 
-    let card = cards.find( card => card.title === user)
-    const {title, body} = card
+  
     return (
         <div>
             {
