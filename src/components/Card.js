@@ -1,29 +1,53 @@
-import React,{useState} from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 
-const Card = (props) =>  {
-
-    // const [userCard, setUserCard] =useState(null);
-     
-   const {user} = useParams()
-       
-  
- 
-        
-    
+import { connect } from "react-redux"
 
 
-    
-        return (
-            <div
-                className="ui raised very padded text container segment"
-                style={{ marginTop: "80px", }}
-            >
-                <h3 className="ui header">User:  {user.toUpperCase()}</h3>
-                
-            </div>
-        )
-    
+const Card = ({ cards }) => {
+
+    const { user } = useParams()
+
+
+    console.log(cards)
+
+
+
+
+
+
+
+
+
+
+    let card = cards.find( card => card.title === user)
+    return (
+        <div>
+            {
+                 <div
+                        className="ui raised very padded text container segment"
+                        style={{ marginTop: "80px", }}
+                    >
+                        <h3 className="ui header"> {card.title}</h3>
+                        <p>{card.body}</p>
+                    </div>
+            }
+
+        </div>
+
+    )
+
 }
 
-export default Card;
+const mapStateToProps = (state) => {
+    const { cards } = state;
+
+    console.log(cards)
+    return {
+        cards: cards
+    }
+}
+
+
+
+export default connect(mapStateToProps)(Card);
