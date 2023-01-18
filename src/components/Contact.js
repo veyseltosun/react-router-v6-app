@@ -1,9 +1,12 @@
 import React from "react";
 import { useLocation, useParams, useNavigate, Link } from "react-router-dom";
 import Modal from "./Modal";
+import { connect } from "react-redux";
 
 
-const Contact = (props) => {
+
+const Contact = ({ cards }) => {
+
 
 
     let navigate = useNavigate();
@@ -16,24 +19,32 @@ const Contact = (props) => {
 
     return (
         <div>
-            <Modal/>
+            <Modal />
 
-            <div
-                className="ui raised very padded text container segment"
-                style={{ marginTop: "80px", }}
-            >
-                <Link to="/alex" className="ui header"> Alex </Link>
-                <p>Lorem ipsum sit amet dolar.</p>
-            </div>
-            <div
-                className="ui raised very padded text container segment"
-                style={{ marginTop: "80px", }}
-            >
-                <Link to="/willma" className="ui header"> Willma </Link>
-                <p>Lorem ipsum sit amet dolar.</p>
-            </div>
+            {cards.map((card) => {
+                const { id, title, body } = card;
+                return (
+                    <div key={id}
+                        className="ui raised very padded text container segment"
+                        style={{ marginTop: "80px", }}
+                    >
+                        <Link to={"/"+title} className="ui header"> {title}</Link>
+                        <p>{body}</p>
+                    </div>
+
+                )
+            })}
+
 
         </div>
     )
 }
-export default Contact;
+
+const mapStateToProps = (state) => {
+    const { cards } = state;
+
+    return {
+        cards: cards  // cards olarak kısaltabilirdik Ecma 6 ya göre aynı iki key value için biri yazılması yeterli.
+    }
+}
+export default connect(mapStateToProps)(Contact);
