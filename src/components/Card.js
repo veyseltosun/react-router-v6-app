@@ -21,6 +21,7 @@ const Card = ({ cards }) => {
 
 
     let card = cards.find( card => card.title === user)
+    const {title, body} = card
     return (
         <div>
             {
@@ -28,8 +29,9 @@ const Card = ({ cards }) => {
                         className="ui raised very padded text container segment"
                         style={{ marginTop: "80px", }}
                     >
-                        <h3 className="ui header"> {card.title}</h3>
-                        <p>{card.body}</p>
+                        <h3 className="ui header"> {title}</h3>
+                        <p>{body} you click the user and you see the clicked user</p>
+
                     </div>
             }
 
