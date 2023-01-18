@@ -30,7 +30,7 @@ const Card = ({ cards }) => {
                     >
                         <h3 className="ui header"> {title}</h3>
                         <p>{body} you click the user and you see the clicked user</p>
-                        <button className="ui primary right floated button" onClick={(id) => onButtonClick}>Delete</button>
+                        <button className="ui primary right floated button" onClick={ onButtonClick}>Delete</button>
 
                     </div>
             }
