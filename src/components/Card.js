@@ -11,12 +11,9 @@ const Card = ({ cards }) => {
 
     console.log(cards)
 
-
-
-
-
-
-
+    const onButtonClick = () => {
+        card.deleteCard()
+    }
 
 
 
@@ -31,6 +28,7 @@ const Card = ({ cards }) => {
                     >
                         <h3 className="ui header"> {title}</h3>
                         <p>{body} you click the user and you see the clicked user</p>
+                        <button className="ui primary right floated button" onClick={onButtonClick}>Delete</button>
 
                     </div>
             }
@@ -50,6 +48,12 @@ const mapStateToProps = (state) => {
     }
 }
 
+const mapDispatchToProps = (dispatch) => {
+        return {
+            deleteCard: (id) => {dispatch({type:"DELETE_CARD", id: id})}
+        }
+}
 
 
-export default connect(mapStateToProps)(Card);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Card);
