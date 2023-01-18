@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { connect, useSelector, useDispatch } from "react-redux"
+import { deleteCard } from "../reducer/actions";
 
 
 const Card = ({ cards }) => {
@@ -10,13 +11,13 @@ const Card = ({ cards }) => {
     const navigate = useNavigate(); 
        
     const { user } = useParams()
-    console.log(cards)
+
     let card = cards.find( card => card.title === user)
     const {title, body, id} = card
-    console.log(id)
+  
     const onButtonSubmit = () => {
        
-        dispatch({type:"DELETE_CARD", id: id})
+        dispatch(deleteCard(id))
         navigate("/contact")
     }
 
@@ -47,7 +48,7 @@ const Card = ({ cards }) => {
 const mapStateToProps = (state) => {
     const { cards } = state;
 
-    console.log(cards)
+  
     return {
         cards: cards
     }
