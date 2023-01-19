@@ -32,15 +32,21 @@ const Card = ({ cards, users }) => {
     return (
         <div>
             {
-                 <div
+                users.map((user) => {
+                    const {id, name, email} = user;
+                    return(
+                        <div key={id}
                         className="ui raised very padded text container segment"
                         style={{ marginTop: "80px", }}
-                    >
-                        <h3 className="ui header"> {title}</h3>
-                        <p>{body} you click the user and you see the clicked user</p>
+                    >   
+                        <p>JSONPlaceholder is a free online REST API that you can use whenever you need some fake data.</p>
+                        <h3 className="ui header"> {name}</h3>
+                        <p>{email} </p>
                         <button className="ui primary right floated button" onClick={onButtonSubmit}>Delete</button>
 
                     </div>
+                    )
+                })
             }
 
         </div>
