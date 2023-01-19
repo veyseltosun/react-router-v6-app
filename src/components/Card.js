@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { connect, useSelector, useDispatch } from "react-redux"
-import { deleteCard } from "../reducer/actions";
+import { deleteCard, fethUser } from "../reducer/actions";
 
 
-const Card = ({ cards }) => {
+const Card = ({ cards, users }) => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate(); 
@@ -20,7 +20,11 @@ const Card = ({ cards }) => {
         dispatch(deleteCard(id))
         navigate("/contact")
     }
-
+    
+    useEffect(() => {
+        fethUser();
+        dispatch(fethUser())
+    },[])
    
 
 
@@ -46,11 +50,14 @@ const Card = ({ cards }) => {
 }
 
 const mapStateToProps = (state) => {
-    const { cards } = state;
+    const { cards, users } = state;
+
+    console.log(users)
 
   
     return {
-        cards: cards
+        cards: cards,
+        users: users,
     }
 }
 
